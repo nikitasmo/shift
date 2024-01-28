@@ -35,6 +35,8 @@ class ListNotesViewController: UIViewController {
         
         self.title = "Заметки"
         
+        navigationItem.rightBarButtonItem = listNotesView.barButtonPlus
+        
     }
 
 }

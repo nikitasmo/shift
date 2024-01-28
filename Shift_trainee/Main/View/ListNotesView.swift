@@ -18,6 +18,12 @@ protocol ListNotesViewDelegate: AnyObject {
 final class ListNotesView: UIView {
     
     // Subviews
+    private(set) lazy var barButtonPlus: UIBarButtonItem = {
+        var button = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(touchUpNoteAdd))
+        button.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 30)], for: .normal)
+        return button
+    }()
+    
     private(set) lazy var mainTableView: UITableView = {
         var tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -66,4 +72,10 @@ extension ListNotesView: UITableViewDataSource {
         return delegate?.getNumberOfNote() ?? 0
     }
     
+}
+
+extension ListNotesView {
+    @objc func touchUpNoteAdd() {
+        
+    }
 }
