@@ -25,7 +25,6 @@ class ListNotesViewController: UIViewController {
     //MARK: - View life cycle
     
     override func loadView() {
-        super.loadView()
         listNotesView.delegate = self
         view = listNotesView
     }
@@ -44,8 +43,10 @@ class ListNotesViewController: UIViewController {
 extension ListNotesViewController: IListNotesViewController {
     
     func buttonAddPressed() {
+        presenter.createNewNote(text: "")
         
         let noteViewController = NoteViewController()
+        noteViewController.delegate = self
         
         self.navigationController?.pushViewController(noteViewController, animated: true)
     }
@@ -62,3 +63,9 @@ extension ListNotesViewController: ListNotesViewDelegate {
     }
 }
 
+extension ListNotesViewController: NoteViewControllerDelegate {
+    func viewDidClose() {
+        listNotesView.mainTableView.reloadData()
+    }
+    
+}

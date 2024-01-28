@@ -19,6 +19,7 @@
 		11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */; };
 		11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */; };
 		11ADBF7A2B66A5CA00D1A2AB /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */; };
+		11ADBF7C2B66ABE100D1A2AB /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF7B2B66ABE100D1A2AB /* NoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesPresenter.swift; sourceTree = "<group>"; };
 		11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		11ADBF7B2B66ABE100D1A2AB /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		11ADBF782B66A5A900D1A2AB /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
+				11ADBF7B2B66ABE100D1A2AB /* NoteView.swift */,
 				11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */,
 			);
 			path = Sheet;
@@ -202,6 +205,7 @@
 				11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */,
 				11ADBF7A2B66A5CA00D1A2AB /* NoteViewController.swift in Sources */,
 				11ADBF6C2B668B2300D1A2AB /* ListNotesView.swift in Sources */,
+				11ADBF7C2B66ABE100D1A2AB /* NoteView.swift in Sources */,
 				11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */,
 				11ADBF592B668A2400D1A2AB /* SceneDelegate.swift in Sources */,
 				11ADBF722B66907A00D1A2AB /* ModelStorage.swift in Sources */,

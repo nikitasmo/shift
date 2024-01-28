@@ -28,7 +28,7 @@ final class ListNotesView: UIView {
     
     private(set) lazy var mainTableView: UITableView = {
         var tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.backgroundColor = UIColor.clear.cgColor
         tableView.backgroundColor = .clear
@@ -50,6 +50,10 @@ final class ListNotesView: UIView {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         
+        self.addSubview(mainTableView)
+        
+        configureConstraint()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +64,10 @@ final class ListNotesView: UIView {
 
 extension ListNotesView: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
 
 extension ListNotesView: UITableViewDataSource {
@@ -69,6 +77,7 @@ extension ListNotesView: UITableViewDataSource {
         
         cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.backgroundColor = .clear
+        
         cell.configureCell(text: delegate?.getNotePreview(index: indexPath.row) ?? "fff")
         
         return cell
@@ -80,6 +89,19 @@ extension ListNotesView: UITableViewDataSource {
     
 }
 
+// MARK: - Private
+
+extension ListNotesView {
+    private func configureConstraint() {
+        //mainTableView
+        mainTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        mainTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        mainTableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mainTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+}
+
+// MARK: - Selectors
 extension ListNotesView {
     @objc func touchUpNoteAdd() {
         delegate?.buttonAddPressed()

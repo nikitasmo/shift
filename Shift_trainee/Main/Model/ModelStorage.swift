@@ -15,6 +15,10 @@ final class ModelStorage {
         self.model = []
     }
     
+    func addNewModel(text: String) {
+        let noteModel = NoteModel(text: text)
+        model.append(noteModel)
+    }
     
     func getNotePreview(index: Int) -> String {
         return model[index].text
