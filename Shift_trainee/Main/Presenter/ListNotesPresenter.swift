@@ -9,6 +9,8 @@ import Foundation
 
 protocol IListNotesPresenter: AnyObject {
     var noteCount: Int { get }
+    
+    func getNotePreview(index: Int) -> String
 }
 
 final class ListNotesPresenter {
@@ -22,8 +24,13 @@ final class ListNotesPresenter {
 }
 
 extension ListNotesPresenter: IListNotesPresenter {
+    
     var noteCount: Int {
         modelStorage.model.count
+    }
+    
+    func getNotePreview(index: Int) -> String {
+        modelStorage.getNotePreview(index: index)
     }
     
 }

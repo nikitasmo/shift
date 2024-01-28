@@ -12,6 +12,7 @@ protocol ListNotesViewDelegate: AnyObject {
     
     
     func getNumberOfNote() -> Int
+    func getNotePreview(index: Int) -> String
 }
 
 
@@ -63,7 +64,11 @@ extension ListNotesView: UITableViewDelegate {
 extension ListNotesView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NoteTableViewCell
+        
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        cell.backgroundColor = .clear
+        cell.configureCell(text: delegate?.getNotePreview(index: indexPath.row) ?? "fff")
         
         return cell
     }

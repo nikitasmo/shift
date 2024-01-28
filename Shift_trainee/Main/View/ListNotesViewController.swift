@@ -46,6 +46,11 @@ extension ListNotesViewController: IListNotesViewController {
 }
 
 extension ListNotesViewController: ListNotesViewDelegate {
+    
+    func getNotePreview(index: Int) -> String {
+        presenter.getNotePreview(index: index)
+    }
+    
     func getNumberOfNote() -> Int {
         presenter.noteCount
     }

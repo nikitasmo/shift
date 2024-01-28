@@ -15,4 +15,9 @@ final class ModelStorage {
         self.model = []
     }
     
+    
+    func getNotePreview(index: Int) -> String {
+        return model[index].text
+    }
+    
 }

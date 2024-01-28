@@ -17,6 +17,7 @@
 		11ADBF702B66903C00D1A2AB /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF6F2B66903C00D1A2AB /* NoteModel.swift */; };
 		11ADBF722B66907A00D1A2AB /* ModelStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF712B66907A00D1A2AB /* ModelStorage.swift */; };
 		11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */; };
+		11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		11ADBF6F2B66903C00D1A2AB /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		11ADBF712B66907A00D1A2AB /* ModelStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStorage.swift; sourceTree = "<group>"; };
 		11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesPresenter.swift; sourceTree = "<group>"; };
+		11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				11ADBF6B2B668B2300D1A2AB /* ListNotesView.swift */,
 				11ADBF5A2B668A2400D1A2AB /* ListNotesViewController.swift */,
+				11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				11ADBF702B66903C00D1A2AB /* NoteModel.swift in Sources */,
 				11ADBF5B2B668A2400D1A2AB /* ListNotesViewController.swift in Sources */,
 				11ADBF572B668A2400D1A2AB /* AppDelegate.swift in Sources */,
+				11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */,
 				11ADBF6C2B668B2300D1A2AB /* ListNotesView.swift in Sources */,
 				11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */,
 				11ADBF592B668A2400D1A2AB /* SceneDelegate.swift in Sources */,
