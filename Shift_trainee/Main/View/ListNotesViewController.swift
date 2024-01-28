@@ -7,16 +7,26 @@
 
 import UIKit
 
+protocol IListNotesViewController: AnyObject {
+    
+}
+
 class ListNotesViewController: UIViewController {
     
     //Private
     private let listNotesView = ListNotesView()
-
     
+    //MARK: - Dependecy
+    
+    private lazy var presenter: IListNotesPresenter = {
+       return ListNotesPresenter(view: self)
+    }()
+
     //MARK: - View life cycle
     
     override func loadView() {
         super.loadView()
+        listNotesView.delegate = self
         view = listNotesView
     }
     
@@ -27,6 +37,15 @@ class ListNotesViewController: UIViewController {
         
     }
 
+}
 
+extension ListNotesViewController: IListNotesViewController {
+    
+}
+
+extension ListNotesViewController: ListNotesViewDelegate {
+    func getNumberOfNote() -> Int {
+        presenter.noteCount
+    }
 }
 

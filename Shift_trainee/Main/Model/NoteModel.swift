@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Notes: Codable {
+    var models: [NoteModel]
+}
+
+struct NoteModel: Codable {
+    var text: String
+}

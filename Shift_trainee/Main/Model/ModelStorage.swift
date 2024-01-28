@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+final class ModelStorage {
+    
+    private(set) var model: [NoteModel]
+    
+    init() {
+        self.model = []
+    }
+    
+}
