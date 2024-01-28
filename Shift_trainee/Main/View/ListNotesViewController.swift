@@ -43,6 +43,12 @@ class ListNotesViewController: UIViewController {
 
 extension ListNotesViewController: IListNotesViewController {
     
+    func buttonAddPressed() {
+        
+        let noteViewController = NoteViewController()
+        
+        self.navigationController?.pushViewController(noteViewController, animated: true)
+    }
 }
 
 extension ListNotesViewController: ListNotesViewDelegate {

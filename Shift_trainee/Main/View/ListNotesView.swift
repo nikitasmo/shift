@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListNotesViewDelegate: AnyObject {
     
+    func buttonAddPressed()
     
     func getNumberOfNote() -> Int
     func getNotePreview(index: Int) -> String
@@ -81,6 +82,6 @@ extension ListNotesView: UITableViewDataSource {
 
 extension ListNotesView {
     @objc func touchUpNoteAdd() {
-        
+        delegate?.buttonAddPressed()
     }
 }

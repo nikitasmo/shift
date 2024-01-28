@@ -18,6 +18,7 @@
 		11ADBF722B66907A00D1A2AB /* ModelStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF712B66907A00D1A2AB /* ModelStorage.swift */; };
 		11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */; };
 		11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */; };
+		11ADBF7A2B66A5CA00D1A2AB /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		11ADBF712B66907A00D1A2AB /* ModelStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStorage.swift; sourceTree = "<group>"; };
 		11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesPresenter.swift; sourceTree = "<group>"; };
 		11ADBF762B669FF400D1A2AB /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				11ADBF6A2B668AE100D1A2AB /* Main */,
+				11ADBF782B66A5A900D1A2AB /* Sheet */,
 				11ADBF562B668A2400D1A2AB /* AppDelegate.swift */,
 				11ADBF582B668A2400D1A2AB /* SceneDelegate.swift */,
 				11ADBF5C2B668A2400D1A2AB /* Main.storyboard */,
@@ -112,6 +115,14 @@
 				11ADBF742B6696F300D1A2AB /* ListNotesPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		11ADBF782B66A5A900D1A2AB /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				11ADBF792B66A5CA00D1A2AB /* NoteViewController.swift */,
+			);
+			path = Sheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				11ADBF5B2B668A2400D1A2AB /* ListNotesViewController.swift in Sources */,
 				11ADBF572B668A2400D1A2AB /* AppDelegate.swift in Sources */,
 				11ADBF772B669FF400D1A2AB /* NoteTableViewCell.swift in Sources */,
+				11ADBF7A2B66A5CA00D1A2AB /* NoteViewController.swift in Sources */,
 				11ADBF6C2B668B2300D1A2AB /* ListNotesView.swift in Sources */,
 				11ADBF752B6696F300D1A2AB /* ListNotesPresenter.swift in Sources */,
 				11ADBF592B668A2400D1A2AB /* SceneDelegate.swift in Sources */,
