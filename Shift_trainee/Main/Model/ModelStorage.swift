@@ -28,4 +28,8 @@ final class ModelStorage {
         return model[index].text
     }
     
+    func deleteNote(index: Int) {
+        model.remove(at: index)
+    }
+    
 }

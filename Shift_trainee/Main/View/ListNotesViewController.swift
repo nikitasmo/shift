@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IListNotesViewController: AnyObject {
-    
+    func displayNotes()
 }
 
 class ListNotesViewController: UIViewController {
@@ -40,7 +40,27 @@ class ListNotesViewController: UIViewController {
 
 }
 
+// MARK: - IListNotesViewController
 extension ListNotesViewController: IListNotesViewController {
+    func displayNotes() {
+        listNotesView.mainTableView.reloadData()
+    }
+}
+
+// MARK: - ListNotesViewDelegate
+extension ListNotesViewController: ListNotesViewDelegate {
+    
+    func getNotePreview(index: Int) -> String {
+        presenter.getNotePreview(index: index)
+    }
+    
+    func buttonDeletePressed(number: Int) {
+        presenter.deleteNote(index: number)
+    }
+    
+    func getNumberOfNote() -> Int {
+        presenter.noteCount
+    }
     
     func buttonAddPressed() {
         presenter.createNewNote(text: "")
@@ -49,17 +69,6 @@ extension ListNotesViewController: IListNotesViewController {
         noteViewController.delegate = self
         
         self.navigationController?.pushViewController(noteViewController, animated: true)
-    }
-}
-
-extension ListNotesViewController: ListNotesViewDelegate {
-    
-    func getNotePreview(index: Int) -> String {
-        presenter.getNotePreview(index: index)
-    }
-    
-    func getNumberOfNote() -> Int {
-        presenter.noteCount
     }
 }
 

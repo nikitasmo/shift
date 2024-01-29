@@ -14,6 +14,7 @@ protocol IListNotesPresenter: AnyObject {
     func createNewNote(text: String)
     func setTextNote(at index: Int, text: String)
     func getNotePreview(index: Int) -> String
+    func deleteNote(index: Int)
 }
 
 final class ListNotesPresenter {
@@ -46,6 +47,11 @@ extension ListNotesPresenter: IListNotesPresenter {
     
     func getNotePreview(index: Int) -> String {
         modelStorage.getNotePreview(index: index)
+    }
+    
+    func deleteNote(index: Int) {
+        modelStorage.deleteNote(index: index)
+        view?.displayNotes()
     }
     
 }

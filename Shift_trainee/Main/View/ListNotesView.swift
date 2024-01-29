@@ -11,6 +11,7 @@ import UIKit
 protocol ListNotesViewDelegate: AnyObject {
     
     func buttonAddPressed()
+    func buttonDeletePressed(number: Int)
     
     func getNumberOfNote() -> Int
     func getNotePreview(index: Int) -> String
@@ -85,6 +86,14 @@ extension ListNotesView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return delegate?.getNumberOfNote() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Удалить", handler: { [weak self] (_, _, _) in
+            self?.delegate?.buttonDeletePressed(number: indexPath.row)
+        })
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
     
 }
