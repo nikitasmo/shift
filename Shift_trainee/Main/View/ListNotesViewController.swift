@@ -36,6 +36,8 @@ class ListNotesViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = listNotesView.barButtonPlus
         
+        presenter.firstLoad()
+        
     }
 
 }

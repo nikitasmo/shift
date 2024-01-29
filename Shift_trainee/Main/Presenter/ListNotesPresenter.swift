@@ -17,6 +17,8 @@ protocol IListNotesPresenter: AnyObject {
     func deleteNote(index: Int)
     
     func getNote(at index: Int) -> NoteModel
+    
+    func firstLoad()
 }
 
 final class ListNotesPresenter {
@@ -30,6 +32,12 @@ final class ListNotesPresenter {
 }
 
 extension ListNotesPresenter: IListNotesPresenter {
+    
+    func firstLoad() {
+        if modelStorage.model.count == 0 {
+            createNewNote(text: "Hello world")
+        }
+    }
     
     var lastNoteIndex: Int {
         modelStorage.model.count - 1
