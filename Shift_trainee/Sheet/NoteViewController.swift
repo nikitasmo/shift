@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol INoteViewController: AnyObject {
+    
+}
+
 protocol NoteViewControllerDelegate: AnyObject {
+    func textViewDidChanged(at index: Int, text: String)
     func viewDidClose()
 }
 
@@ -16,8 +21,11 @@ final class NoteViewController: UIViewController {
     weak var delegate: NoteViewControllerDelegate?
     
     private let noteView = NoteView()
+    private let noteIndex: Int
     
-    init() {
+    init(noteIndex: Int, text: String = "") {
+        self.noteIndex = noteIndex
+        self.noteView.textViewNote.text = text
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,6 +34,7 @@ final class NoteViewController: UIViewController {
     }
     
     override func loadView() {
+        noteView.delegate = self
         view = noteView
     }
     
@@ -34,5 +43,15 @@ final class NoteViewController: UIViewController {
         delegate?.viewDidClose()
     }
     
+}
+
+extension NoteViewController: INoteViewController {
+    
+}
+
+extension NoteViewController: NoteViewDelegate {
+    func textViewDidChanged(text: String) {
+        delegate?.textViewDidChanged(at: noteIndex, text: text)
+    }
 }
 

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NoteViewDelegate: AnyObject {
+    func textViewDidChanged(text: String)
+}
+
 final class NoteView: UIView {
     
     private(set) lazy var textViewNote: UITextView = {
@@ -15,10 +19,14 @@ final class NoteView: UIView {
         return textView
     }()
     
+    weak var delegate: NoteViewDelegate?
+    
     // MARK: - Life cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        textViewNote.delegate = self
              
         self.addSubview(textViewNote)
         
@@ -29,6 +37,12 @@ final class NoteView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension NoteView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        delegate?.textViewDidChanged(text: textView.text)
     }
 }
 

@@ -20,6 +20,10 @@ final class ModelStorage {
         model.append(noteModel)
     }
     
+    func setText(number: Int, text: String) {
+        model[number].text = text
+    }
+    
     func getNotePreview(index: Int) -> String {
         return model[index].text
     }

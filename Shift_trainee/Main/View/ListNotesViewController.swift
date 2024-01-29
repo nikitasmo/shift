@@ -45,7 +45,7 @@ extension ListNotesViewController: IListNotesViewController {
     func buttonAddPressed() {
         presenter.createNewNote(text: "")
         
-        let noteViewController = NoteViewController()
+        let noteViewController = NoteViewController(noteIndex: presenter.lastNoteIndex)
         noteViewController.delegate = self
         
         self.navigationController?.pushViewController(noteViewController, animated: true)
@@ -64,8 +64,13 @@ extension ListNotesViewController: ListNotesViewDelegate {
 }
 
 extension ListNotesViewController: NoteViewControllerDelegate {
+    
     func viewDidClose() {
         listNotesView.mainTableView.reloadData()
+    }
+    
+    func textViewDidChanged(at index: Int, text: String) {
+        presenter.setTextNote(at: index, text: text)
     }
     
 }
