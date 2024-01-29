@@ -70,6 +70,13 @@ extension ListNotesViewController: ListNotesViewDelegate {
         
         self.navigationController?.pushViewController(noteViewController, animated: true)
     }
+    
+    func notePressed(row: Int) {
+        let noteViewController = NoteViewController(noteIndex: row, text: presenter.getNote(at: row).text)
+        noteViewController.delegate = self
+
+        self.navigationController?.pushViewController(noteViewController, animated: true)
+    }
 }
 
 extension ListNotesViewController: NoteViewControllerDelegate {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ListNotesViewDelegate: AnyObject {
-    
+    func notePressed(row: Int)
     func buttonAddPressed()
     func buttonDeletePressed(number: Int)
     
@@ -64,6 +64,12 @@ final class ListNotesView: UIView {
 }
 
 extension ListNotesView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        mainTableView.deselectRow(at: indexPath, animated: true)
+        delegate?.notePressed(row: indexPath.row)
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
