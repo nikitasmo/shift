@@ -13,4 +13,5 @@ struct Notes: Codable {
 
 struct NoteModel: Codable {
     var text: String
+    var textSize: Float
 }

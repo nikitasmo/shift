@@ -25,18 +25,28 @@ final class ModelStorage {
     
     
     func addNewModel(text: String) {
-        let noteModel = NoteModel(text: text)
+        let noteModel = NoteModel(text: text, textSize: 30)
         model.append(noteModel)
         saveNew(note: noteModel)
     }
     
-    func setText(number: Int, text: String) {
+    func setText(number: Int, text: String, textSize: Float) {
         model[number].text = text
-        editNote(at: number, text: text)
+        model[number].textSize = textSize
+        editNote(at: number, text: text, textSize: textSize)
     }
     
     func getNote(index: Int) -> NoteModel {
         model[index]
+    }
+    
+    func getSizeForTextNote(number: Int) -> Float {
+        return model[number].textSize
+    }
+    
+    func setTextSizeNote(number: Int, textSize: Float) {
+        model[number].textSize = textSize
+        editNote(at: number, text: model[number].text, textSize: textSize)
     }
     
     func getNotePreview(index: Int) -> String {
@@ -79,7 +89,7 @@ extension ModelStorage {
         }
     }
     
-    private func editNote(at index: Int, text: String) {
+    private func editNote(at index: Int, text: String, textSize: Float) {
         guard let data = defaults.data(forKey: "notes") else {
             return
         }
@@ -89,6 +99,7 @@ extension ModelStorage {
             
             if !notes.models.isEmpty {
                 notes.models[index].text = text
+                notes.models[index].textSize = textSize
             }
             
             let newData = try encoder.encode(notes)

@@ -12,8 +12,8 @@ protocol INoteViewController: AnyObject {
 }
 
 protocol NoteViewControllerDelegate: AnyObject {
-    func textViewDidChanged(at index: Int, text: String)
-    func viewDidClose()
+    func textViewDidChanged(at index: Int, text: String, textSize: Float)
+    func viewDidClose(noteIndex: Int, textSize: Float)
 }
 
 final class NoteViewController: UIViewController {
@@ -23,9 +23,11 @@ final class NoteViewController: UIViewController {
     private let noteView = NoteView()
     private let noteIndex: Int
     
-    init(noteIndex: Int, text: String = "") {
+    init(noteIndex: Int, text: String = "", textSize: Float) {
         self.noteIndex = noteIndex
         self.noteView.textViewNote.text = text
+        noteView.sliderTextSize.setValue(textSize, animated: true)
+        noteView.textViewNote.font = UIFont.systemFont(ofSize: CGFloat(textSize))
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,7 +42,7 @@ final class NoteViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        delegate?.viewDidClose()
+        delegate?.viewDidClose(noteIndex: noteIndex, textSize: noteView.sliderTextSize.value)
     }
     
 }
@@ -50,8 +52,13 @@ extension NoteViewController: INoteViewController {
 }
 
 extension NoteViewController: NoteViewDelegate {
+    func sliderChangeValue(sizeText: CGFloat) {
+        noteView.textViewNote.font = UIFont.systemFont(ofSize: sizeText)
+    }
+    
     func textViewDidChanged(text: String) {
-        delegate?.textViewDidChanged(at: noteIndex, text: text)
+        var actualSize = noteView.textViewNote.sizeThatFits(CGSize(width: noteView.textViewNote.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+        delegate?.textViewDidChanged(at: noteIndex, text: text, textSize: Float(actualSize.height))
     }
 }
 

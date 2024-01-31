@@ -67,14 +67,14 @@ extension ListNotesViewController: ListNotesViewDelegate {
     func buttonAddPressed() {
         presenter.createNewNote(text: "")
         
-        let noteViewController = NoteViewController(noteIndex: presenter.lastNoteIndex)
+        let noteViewController = NoteViewController(noteIndex: presenter.lastNoteIndex, textSize: 30)
         noteViewController.delegate = self
         
         self.navigationController?.pushViewController(noteViewController, animated: true)
     }
     
     func notePressed(row: Int) {
-        let noteViewController = NoteViewController(noteIndex: row, text: presenter.getNote(at: row).text)
+        let noteViewController = NoteViewController(noteIndex: row, text: presenter.getNote(at: row).text, textSize: presenter.getSizeForTextNote(index: row))
         noteViewController.delegate = self
 
         self.navigationController?.pushViewController(noteViewController, animated: true)
@@ -83,12 +83,13 @@ extension ListNotesViewController: ListNotesViewDelegate {
 
 extension ListNotesViewController: NoteViewControllerDelegate {
     
-    func viewDidClose() {
+    func viewDidClose(noteIndex: Int, textSize: Float) {
+        presenter.setSizetexNote(index: noteIndex, textSize: textSize)
         listNotesView.mainTableView.reloadData()
     }
     
-    func textViewDidChanged(at index: Int, text: String) {
-        presenter.setTextNote(at: index, text: text)
+    func textViewDidChanged(at index: Int, text: String, textSize: Float) {
+        presenter.setTextNote(at: index, text: text, textSize: textSize)
     }
     
 }

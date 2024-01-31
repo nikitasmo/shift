@@ -12,11 +12,14 @@ protocol IListNotesPresenter: AnyObject {
     var noteCount: Int { get }
     
     func createNewNote(text: String)
-    func setTextNote(at index: Int, text: String)
+    func setTextNote(at index: Int, text: String, textSize: Float)
     func getNotePreview(index: Int) -> String
+    func getSizeForTextNote(index: Int) -> Float
     func deleteNote(index: Int)
     
     func getNote(at index: Int) -> NoteModel
+    
+    func setSizetexNote(index: Int, textSize: Float) 
     
     func firstLoad()
 }
@@ -51,8 +54,8 @@ extension ListNotesPresenter: IListNotesPresenter {
         modelStorage.addNewModel(text: text)
     }
     
-    func setTextNote(at index: Int, text: String) {
-        modelStorage.setText(number: index, text: text)
+    func setTextNote(at index: Int, text: String, textSize: Float) {
+        modelStorage.setText(number: index, text: text, textSize: textSize)
     }
     
     func getNotePreview(index: Int) -> String {
@@ -66,6 +69,14 @@ extension ListNotesPresenter: IListNotesPresenter {
     
     func getNote(at index: Int) -> NoteModel {
         modelStorage.getNote(index: index)
+    }
+    
+    func getSizeForTextNote(index: Int) -> Float {
+        modelStorage.getSizeForTextNote(number: index)
+    }
+    
+    func setSizetexNote(index: Int, textSize: Float) {
+        modelStorage.setTextSizeNote(number: index, textSize: textSize)
     }
     
 }
